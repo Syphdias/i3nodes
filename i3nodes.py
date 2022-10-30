@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from i3ipc import Connection
+from sys import argv
 
 
 def print_or_nodes(o, depth=0):
@@ -12,4 +13,9 @@ def print_or_nodes(o, depth=0):
 
 if __name__ == "__main__":
     i3 = Connection()
-    print_or_nodes(i3.get_tree())
+    tree = i3.get_tree()
+    if len(argv) > 1 and (argv[1] or "") == "focused":
+
+        print_or_nodes(tree.find_focused().workspace())
+    else:
+        print_or_nodes(tree)
