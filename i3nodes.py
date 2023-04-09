@@ -15,7 +15,6 @@ if __name__ == "__main__":
     i3 = Connection()
     tree = i3.get_tree()
     if len(argv) > 1 and (argv[1] or "") == "focused":
-
         print_or_nodes(tree.find_focused().workspace())
     else:
         print_or_nodes(tree)
