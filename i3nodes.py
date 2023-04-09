@@ -5,7 +5,7 @@ from sys import argv
 
 def print_or_nodes(o, depth=0):
     name = o.name or ""
-    print(f"{'  '*depth}{o.type}: {name} ({o.layout})")
+    print(f"{'  '*depth}{o.type}: {o.id} {name} ({o.layout})")
     if o.nodes:
         for n in o.nodes:
             print_or_nodes(n, depth + 1)
